@@ -1,0 +1,8 @@
+ACLOCAL_AMFLAGS = -I m4
+
+SUBDIRS = sources gegueb
+
+EXTRA_DIST = \
+AUTHORS \
+COPYING \
+README.md
