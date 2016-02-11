@@ -1,4 +1,4 @@
-SNK = gtk-sharp.snk
+SNK = egueb-dom-sharp.snk
 API = $(pkg:=-api.xml)
 RAW_API = $(pkg:=-api.raw)
 ASSEMBLY_NAME = $(pkg:=-sharp)

@@ -1,0 +1,14 @@
+<gapi-parser-input>
+  <api filename="@top_srcdir@/gegueb/gegueb-api.raw">
+    <library name="gegueb">
+      <namespace name="Gegueb">
+        <directory path="@top_srcdir@/../gegueb/src/lib">
+          <exclude>Gegueb.h</exclude>
+          <exclude>gegueb_main.h</exclude>
+          <exclude>gegueb_window.h</exclude>
+        </directory>
+      </namespace>
+    </library>
+  </api>
+</gapi-parser-input>
+

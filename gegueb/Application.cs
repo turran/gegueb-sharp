@@ -47,8 +47,8 @@ namespace Gegueb {
 			IntPtr wPtr = gegueb_window_new (doc.Raw, x, y, w, h);
 			if (wPtr != null)
 			{
-				Window w = new Window (wPtr);
-				return w;
+				Window win = new Window (wPtr);
+				return win;
 			}
 
 			return null;

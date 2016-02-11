@@ -154,5 +154,6 @@ sources/Makefile
 gegueb/Makefile
 gegueb/gegueb-sharp.dll.config
 gegueb/gegueb-sharp.pc
+sources/sources.xml
 ])
 
