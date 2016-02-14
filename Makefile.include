@@ -12,19 +12,20 @@ gapi_DATA = $(API)
 CLEANFILES = $(ASSEMBLY) $(ASSEMBLY:=.mdb) $(POLICY_ASSEMBLIES) $(POLICY_CONFIGS) generated-stamp generated/*.cs $(API) glue/generated.c $(SNK) AssemblyInfo.cs
 DISTCLEANFILES = $(ASSEMBLY:=.config)
 
-EXTRA_DIST = $(RAW_API) $(METADATA) $(customs) $(sources) $(add_dist)
+EXTRA_DIST = $(RAW_API) $(SYMBOLS) $(METADATA) $(customs) $(sources) $(add_dist)
 
-$(API): $(METADATA) $(RAW_API)
+build_symbols = $(addprefix --symbols=$(srcdir)/, $(SYMBOLS))
+
+$(API): $(METADATA) $(RAW_API) $(SYMBOLS)
 	cp $(srcdir)/$(RAW_API) $(API)
 	chmod u+w $(API)
 	@if test -n '$(METADATA)'; then		\
-		echo "$(GAPI_FIXUP) --api=$(API) --metadata=$(srcdir)/$(METADATA)";	\
-		$(GAPI_FIXUP) --api=$(API) --metadata=$(srcdir)/$(METADATA); \
+		echo "$(GAPI_FIXUP) --api=$(API) --metadata=$(srcdir)/$(METADATA) $(build_symbols)";	\
+		$(GAPI_FIXUP) --api=$(API) --metadata=$(srcdir)/$(METADATA) $(build_symbols); \
 	fi
 
 build_customs = $(addprefix $(srcdir)/, $(customs))
 api_includes = $(GTKSHARP_CFLAGS) $(addprefix -I:, $(INCLUDE_API))
-
 
 generated-stamp: $(API) $(INCLUDE_API) $(build_customs)
 	rm -f generated/* &&	\
@@ -40,7 +41,7 @@ AssemblyInfo.cs: $(top_srcdir)/AssemblyInfo.cs.in
 	sed -e "s/@API_VERSION@/$(API_VERSION)/" $(top_srcdir)/AssemblyInfo.cs.in > AssemblyInfo.cs
 
 build_sources = $(addprefix $(srcdir)/, $(sources)) AssemblyInfo.cs
-build_references = $(MONO_CAIRO_LIBS) $(GNOMESHARP_LIBS) $(addprefix /r:, $(references))
+build_references = $(GTKSHARP_LIBS) $(EGUEBSHARP_LIBS) $(addprefix /r:, $(references))
 
 if PLATFORM_WIN32
 GAPI_CDECL_INSERT=$(top_srcdir)/gapi-cdecl-insert --keyfile=$(SNK) $(ASSEMBLY)
