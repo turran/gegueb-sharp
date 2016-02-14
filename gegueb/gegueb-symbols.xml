@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <api>
-  <symbol type="manual" cname="Egueb_Dom_Document" name="Egueb.Dom.Document"/>
-  <!--<symbol type="marshal" cname="Egueb_Dom_Document" name="Egueb.Dom.Document" marshal_type="IntPtr" call_fmt="{0}.Raw"/>-->
+  <!--<symbol type="manual" cname="Egueb_Dom_Document" name="Egueb.Dom.Document"/>-->
+  <symbol type="marshal" cname="Egueb_Dom_Document" name="Egueb.Dom.Document" marshal_type="IntPtr" call_fmt="{0}.Raw"/>
 </api>
 

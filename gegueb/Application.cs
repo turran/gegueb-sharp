@@ -1,22 +1,19 @@
 namespace Gegueb {
 
 	using System;
+	using System.Runtime.InteropServices;
+	using GLib;
 	using Egueb.Dom;
 
 	public class Application {
 
+		private static MainLoop loop = new MainLoop();
 		//
 		// Disables creation of instances.
 		//
 		private Application ()
 		{
 		}
-
-		[DllImport("libglib-2.0-0.dll")]
-		static extern void g_main_loop_run ();
-
-		[DllImport("libglib-2.0-0.dll")]
-		static extern void g_main_loop_quit ();
 
 		[DllImport("libgegueb.dll")]
 		static extern void gegueb_init ();
@@ -34,12 +31,12 @@ namespace Gegueb {
 
 		public static void Run ()
 		{
-			g_main_loop_run(loop);
+			loop.Run();
 		}
 
 		public static void Quit ()
 		{
-			g_main_loop_quit(loop);
+			loop.Quit();
 		}
 
 		public Window New (Egueb.Dom.Document doc, int x, int y, int w, int h)
@@ -47,7 +44,7 @@ namespace Gegueb {
 			IntPtr wPtr = gegueb_window_new (doc.Raw, x, y, w, h);
 			if (wPtr != null)
 			{
-				Window win = new Window (wPtr);
+				Window win = new Window (wPtr, false);
 				return win;
 			}
 
