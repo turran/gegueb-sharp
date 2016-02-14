@@ -39,7 +39,7 @@ namespace Gegueb {
 			loop.Quit();
 		}
 
-		public Window New (Egueb.Dom.Document doc, int x, int y, int w, int h)
+		public static Window New (Egueb.Dom.Document doc, int x, int y, int w, int h)
 		{
 			IntPtr wPtr = gegueb_window_new (doc.Raw, x, y, w, h);
 			if (wPtr != null)
