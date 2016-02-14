@@ -1,0 +1,4 @@
+<?xml version="1.0"?>
+<metadata>
+  <attr path="/api/namespace/object[@cname='GeguebWidget']/constructor[@cname='gegueb_widget_new']/*/*[@name='doc']" name="type">Egueb_Dom_Document*</attr>
+</metadata>

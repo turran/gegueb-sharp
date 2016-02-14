@@ -4,7 +4,7 @@ pkgconfig_DATA=gegueb-sharp.pc
 
 SYMBOLS = gegueb-symbols.xml
 INCLUDE_API =
-METADATA =
+METADATA = Gegueb.metadata
 references =
 glue_includes =
 
