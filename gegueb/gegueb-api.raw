@@ -7,16 +7,13 @@
 
 -->
   <namespace name="Gegueb" library="gegueb">
-    <object name="Widget" cname="GeguebWidget" parent="GtkDrawingArea">
+    <object name="Widget" cname="GeguebWidget" parent="GtkWidget">
       <field name="Priv" cname="priv" type="GeguebWidgetPrivate*" />
+      <property name="Document" cname="document" type="gpointer" readable="true" writeable="true" />
       <method name="GetType" cname="gegueb_widget_get_type" shared="true">
         <return-type type="GType" />
       </method>
-      <constructor cname="gegueb_widget_new">
-        <parameters>
-          <parameter type="Egueb_Dom_Node*" name="doc" />
-        </parameters>
-      </constructor>
+      <constructor cname="gegueb_widget_new" />
     </object>
   </namespace>
 </api>
