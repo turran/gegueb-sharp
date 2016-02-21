@@ -94,7 +94,7 @@ if test "x$AL" = "xno" ; then
 fi
 
 if test "x$has_mono" = "xtrue"; then
-GACUTIL_FLAGS='/package $(PACKAGE_VERSION) /gacdir $(DESTDIR)$(prefix)/lib'
+GACUTIL_FLAGS='/package $(PACKAGE_NAME) /gacdir $(DESTDIR)$(prefix)/lib'
 GENERATED_SOURCES=generated/*.cs
 AC_PATH_PROG(RUNTIME, mono, no)
 
