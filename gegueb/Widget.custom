@@ -1,0 +1,15 @@
+		[GLib.Property ("document")]
+		public Egueb.Dom.Document Document {
+			get {
+				GLib.Value val = GetProperty ("document");
+				Egueb.Dom.Document ret = new Egueb.Dom.Document ((IntPtr)val, false);
+				val.Dispose ();
+				return ret;
+			}
+			set {
+				GLib.Value val = new GLib.Value(value.Raw);
+				SetProperty("document", val);
+				val.Dispose ();
+			}
+		}
+
